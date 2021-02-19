@@ -48,13 +48,12 @@ func main() {
 		ctx.Writef("Hello id: %d", id)
 	})
 
-
 	//更改每个路由的宏响应的错误代码程序：
-	//验证错误 则由默认的抛出404 改成 504
-	app.Get("/profile/{id:int min(1)}/friends/{friendid:int min(1) else 504}", func(ctx iris.Context) {
+	//验证错误 则由默认的抛出404 改成 403
+	app.Get("/profile/{id:int min(1)}/friends/{friendid:int min(1) else 403}", func(ctx iris.Context) {
 		id, _ := ctx.Params().GetInt("id")
 		friendid, _ := ctx.Params().GetInt("friendid")
-		ctx.Writef("Hello id: %d looking for friend id: ", id, friendid)
+		ctx.Writef("Hello id: %d looking for friend id: %d", id, friendid)
 	}) //如果没有传递所有路由的宏，这将抛出e 504错误代码而不是404。
 
 	// http://localhost:8080/game/a-zA-Z/level/0-9
