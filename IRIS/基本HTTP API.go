@@ -28,7 +28,7 @@ func main() {
 
 	//不要忘记更多“匹配路由”的动态路径示例！
 	//注意： ctx.Params()从路径中获取参数
-	app.Get("/api/users/{userid:int min(1)}", func(ctx iris.Context) {
+	app.Get("/api/users/{userid:int min(3)}", func(ctx iris.Context) {
 		userID, err := ctx.Params().GetInt("userid")
 		if err != nil {
 			ctx.Writef("error while trying to parse userid parameter," +

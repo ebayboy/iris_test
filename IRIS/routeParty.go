@@ -10,6 +10,10 @@ func main() {
 
 	users := app.Party("/users", myAuthMiddlewareHandler)
 
+	type BotController struct {
+		Ctx iris.Context
+	}
+
 	// http://myhost.com/users/42/profile
 	users.Get("/{id:int}/profile", userProfileHandler)
 
