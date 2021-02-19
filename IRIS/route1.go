@@ -10,10 +10,4 @@ func main() {
 		ctx.HTML("<h1> Hello from /contact </h1>")
 	})
 
-	//post method
-	app.Post("/post", func(ctx iris.Context) {
-		ctx.HTML("<h1>Post path</h1>")
-	})
-
-	app.Run(iris.Addr(":8080"))
 }
